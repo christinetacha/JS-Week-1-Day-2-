@@ -1,23 +1,22 @@
 
 //Alarm Clock business logic
 
-function Alarm (time) {
+function Alarm (time, alert) {
   this.time = time;
+  this.alert = false;
 }
 
 Alarm.prototype.checkAlarm = function() {
   var currentTime = moment().format("hh:mm");
   var alarmTime = this.time;
-
+  console.log(alarmTime);
+  // console.log(currentTime);
   if (currentTime === alarmTime) {
-    console.log(currentTime);
-    console.log(alarmTime);
-    return true;
+    this.alert = true;
   } else {
-    console.log(currentTime);
-    console.log(alarmTime);
-    return false;
+    this.alert = false;
   }
+  // console.log(this.alert);
 };
 
 exports.Alarm = Alarm;

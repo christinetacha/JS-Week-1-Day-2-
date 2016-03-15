@@ -49,6 +49,14 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('default'));
 });
 
+gulp.task('bowerBuild', ['bower'], function(){
+  browserSync.reload();
+});
+
+gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
+  browserSync.reload();
+});
+
 gulp.task('serve', function() {
   browserSync.init({
     server: {
@@ -56,4 +64,6 @@ gulp.task('serve', function() {
       index: "index.html"
     }
   });
+  gulp.watch(['js/*.js'], ['jsBuild']);
+  gulp.watch(['bower.json'], ['bowerBuild']);
 });

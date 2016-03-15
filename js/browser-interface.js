@@ -6,18 +6,54 @@ $(document).ready(function(){
     event.preventDefault();
 
     var alarmTime = $('#set-alarm').val();
-    console.log(alarmTime);
-    var newAlarm = new Alarm(alarmTime);
+    var newAlarm = new Alarm(alarmTime, false);
     console.log(newAlarm);
-    $("#check").click(function() {
-      var whatUp = newAlarm.checkAlarm();
-      if (whatUp === true) {
-        alert("Ayyyyyyyyy");
-      } else {
-        console.log("oh noooooo");
-      }
-    });
-    var autoCheck = window.setInterval(newAlarm.checkAlarm(), 500);
-    console.log(autoCheck);
+    console.log(newAlarm.time);
+
+    // var autoCheck;
+    currentlyChecking(newAlarm);
   });
 });
+
+var currentlyChecking = function(newAlarm) {
+  // var autoCheck = setInterval(newAlarm.checkAlarm, 1000);
+  newAlarm.alert = setInterval(newAlarm.checkAlarm, 1000);
+  if (newAlarm.alert === true) {
+    alert("Ayyyyyyyyy");
+  } else {
+    console.log("oh noooooo");
+  }
+}
+
+
+
+
+
+
+// $("#check").click(function() {
+//   var whatUp = newAlarm.checkAlarm();
+//   if (whatUp === true) {
+//     alert("Ayyyyyyyyy");
+//   } else {
+//     console.log("oh noooooo");
+//   }
+// });
+
+// var autoCheck = window.setInterval(newAlarm.checkAlarm(), 500);
+
+
+// setinterval practice
+
+// setInterval(function(){ console.log("Hello"); }, 3000);
+//
+// var myVar;
+//
+// function alertFunc() {
+//     console.log("Hello!");
+// }
+//
+// function myFunction() {
+//   myVar = setInterval(alertFunc, 3000);
+// }
+//
+// myFunction();
