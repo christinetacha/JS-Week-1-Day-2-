@@ -17,5 +17,7 @@ $(document).ready(function(){
         console.log("oh noooooo");
       }
     });
+    var autoCheck = window.setInterval(newAlarm.checkAlarm(), 500);
+    console.log(autoCheck);
   });
 });
