@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/moment/min/moment.min.js"></script>
     <script src="build/js/app.js"></script>
@@ -9,12 +10,12 @@
   </head>
   <body>
     <h1>Super Rad Alarm Clock</h1>
-    <div class="current-time"></div>
+    <h2 class="current-time"></h2>
     <form id="alarm">
       <label for="set-alarm">Alarm</label>
       <input type="time" id="set-alarm">
       <button type="submit">Set Alarm</button>
-      <div id="alarm-ison">
+      <div id="alarm-alert">
         <h2>Wake the Fuck Up</h2>
       </div>
     </form>
