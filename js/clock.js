@@ -6,8 +6,18 @@ function Alarm (time) {
 }
 
 Alarm.prototype.checkAlarm = function() {
-  var currentTime;
-  var alarmTime;
-}
+  var currentTime = moment().format("hh:mm");
+  var alarmTime = this.time;
+
+  if (currentTime === alarmTime) {
+    console.log(currentTime);
+    console.log(alarmTime);
+    return true;
+  } else {
+    console.log(currentTime);
+    console.log(alarmTime);
+    return false;
+  }
+};
 
 exports.Alarm = Alarm;

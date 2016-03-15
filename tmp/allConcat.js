@@ -1,6 +1,7 @@
 var Alarm = require("./../js/clock.js").Alarm;
 
 $(document).ready(function(){
+  $("#alarm-alert").hide();
   $('#alarm').submit(function(event){
     event.preventDefault();
 
@@ -8,8 +9,15 @@ $(document).ready(function(){
     console.log(alarmTime);
     var newAlarm = new Alarm(alarmTime);
     console.log(newAlarm);
+    $("#check").click(function() {
+      var whatUp = newAlarm.checkAlarm();
+      if (whatUp === true) {
+        alert("Ayyyyyyyyy");
+      } else {
+        console.log("oh noooooo");
+      }
+    });
   });
-  $("#alarm-alert").hide();
 });
 
 $(document).ready(function(){
